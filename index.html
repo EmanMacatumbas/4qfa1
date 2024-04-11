@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset form="login">
+            <legend>Input User Data Here:</legend>
+            <label for="userName">Name:</label><br/>
+            <input type="text" id="username" name="username" onblur='inpBorder()'><br/>
+    
+            <label for="userGender">Gender:</label><br/>
+    
+            <select name="uGender" id="genders" onblur='selBorder()'>
+                <option id="gender" value=""></option>
+                <option id="gender"  value="m">Male</option>
+                <option id="gender"  value="f">Female</option>
+                <option id="gender"  value="na">Prefer not to say</option>
+            </select><br/>
+    
+            <label for="userUserName">Prefered Username:</label><br/>
+            <input type="text" id="userusername" name="userusername" onblur='inpBorder2()'><br/>
+    
+            <label for="userPass">Password:</label><br/>
+            <input type="password" id="userpass" name="userpass" onblur='inpBorder3()'><br/>
+    
+            <label for="userEmail">Email:</label><br/>
+            <input type="email" id="useremail" name="useremail" onblur='inpBorder4()'><br/>
+    
+            <label for="userAddress">Adress:</label><br/>
+            <input type="text" id="useradress" name="useradress" onblur='inpBorder5()'><br/>
+    
+    
+            <label for="userPara">Paragraph about your interests:</label><br/>
+            <textarea name="userpara" id="userpara" onblur='inpBorder6()' cols="30" rows="10"></textarea><br/><br/>
+    
+            <input onclick="presentinfo()" type = "button" id="submitbutton" value = "Submit form" >
+            <input onclick="resetinfo()" type = "reset" value = "Reset">
+        </fieldset>
+        <fieldset form="text">
+            <legend>User Info:</legend>
+            <div id="userN"></div>
+            <div id="userG"></div>
+            <div id="userU"></div>
+            <div id="userP"></div>
+            <div id="userE"></div>
+            <div id="userA"></div>
+            <div id="userI"></div>
+        </fieldset>
+    </form>
+</body>
+<script>
+
+
+    function inpBorder(){
+        var x = document.getElementById("username").value;
+        if (x == ""){
+            username.style.borderColor = "red";
+        }
+        else{
+            username.style.borderColor = "lightgreen";
+        }
+    }
+    function inpBorder2(){
+        var x = document.getElementById("userusername").value;
+        if (x == ""){
+            userusername.style.borderColor = "red";
+        }
+        else{
+            userusername.style.borderColor = "lightgreen";
+        }
+    }
+    function inpBorder3(){
+        var x = document.getElementById("userpass").value;
+        if (x == ""){
+            userpass.style.borderColor = "red";
+        }
+        else{
+            userpass.style.borderColor = "lightgreen";
+        }
+    }
+    function inpBorder4(){
+        var x = document.getElementById("useremail").value;
+        if (x == ""){
+            useremail.style.borderColor = "red";
+        }
+        else{
+            useremail.style.borderColor = "lightgreen";
+        }
+    }
+    function inpBorder5(){
+        var x = document.getElementById("useradress").value;
+        if (x == ""){
+            useradress.style.borderColor = "red";
+        }
+        else{
+            useradress.style.borderColor = "lightgreen";
+        }
+    }
+    function inpBorder6(){
+        var x = document.getElementById("userpara").value;
+        if (x == ""){
+            userpara.style.borderColor = "red";
+        }
+        else{
+            userpara.style.borderColor = "lightgreen";
+        }
+    }
+    function selBorder(){
+        var x=document.getElementById("genders").value;
+        if (x == ""){
+            genders.style.borderColor = "red";
+        }
+        else{
+            genders.style.borderColor = "lightgreen";
+        }
+    }
+
+    function presentinfo(){
+        var a=document.getElementById("username").value;
+        var b=document.getElementById("userusername").value;
+        var c=document.getElementById("userpass").value;
+        var d=document.getElementById("useremail").value;
+        var e=document.getElementById("useradress").value;
+        var f=document.getElementById("userpara").value;
+        var g=document.getElementById("genders").value;
+
+        switch(g){
+            case "na":
+                g="You would prefer not to say your gender";
+                break;
+            case "m":
+                g="You are a male"
+                break;
+            case "f":
+                g="You are a female"
+                break;
+            default:
+                g=""
+        }
+
+        document.getElementById("userN").innerHTML="Your Name is "+a;
+        document.getElementById("userG").innerHTML=g;
+        document.getElementById("userU").innerHTML="Your prefered username is "+b;
+        document.getElementById("userP").innerHTML="Your Password is "+c;
+        document.getElementById("userE").innerHTML="Your Email is "+d;
+        document.getElementById("userA").innerHTML="Your Adress is "+e;
+        document.getElementById("userI").innerHTML='A brief description about your interests would go something like this. "'+f+'"';
+    }
+    function resetinfo(){
+        var h=""
+        document.getElementById("userN").innerHTML=h;
+        document.getElementById("userG").innerHTML=h;
+        document.getElementById("userU").innerHTML=h;
+        document.getElementById("userP").innerHTML=h;
+        document.getElementById("userE").innerHTML=h;
+        document.getElementById("userA").innerHTML=h;
+        document.getElementById("userI").innerHTML=h;
+        
+    }
+</script>
+</html>
